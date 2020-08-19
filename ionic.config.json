@@ -1,0 +1,7 @@
+{
+  "name": "tweetmarkers-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}

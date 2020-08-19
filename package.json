@@ -1,0 +1,22 @@
+{
+  "name": "tweetmarkers-app",
+  "scripts": {
+    "start": "npm run ionic:serve",
+    "ionic:build": "vue-cli-service build",
+    "ionic:serve": "vue-cli-service serve"
+  },
+  "dependencies": {
+    "@capacitor/core": "2.4.0",
+    "@ionic/core": "5.3.1",
+    "@ionic/pwa-elements": "3.0.1",
+    "@ionic/vue": "0.0.9",
+    "vue": "2.6.11",
+    "vue-router": "3.4.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "2.4.0",
+    "@vue/cli-plugin-babel": "4.5.4",
+    "@vue/cli-service": "4.5.4",
+    "vue-template-compiler": "2.6.11"
+  }
+}
