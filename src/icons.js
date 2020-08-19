@@ -1,5 +1,6 @@
 import { addIcons } from 'ionicons'
 import {
+  menuSharp,
   bookmarkSharp,
   settingsSharp,
   archiveSharp,
@@ -11,6 +12,9 @@ import {
 } from 'ionicons/icons'
 
 addIcons({
+  // hack: use `menu-sharp` because `menu` as-is doesn't work!
+  'ios-menu-sharp': menuSharp,
+  'md-menu-sharp': menuSharp,
   'ios-bookmark': bookmarkSharp,
   'md-bookmark': bookmarkSharp,
   'ios-settings': settingsSharp,

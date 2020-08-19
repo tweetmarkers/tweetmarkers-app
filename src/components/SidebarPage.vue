@@ -4,7 +4,8 @@
       <ion-toolbar>
         <ion-buttons slot="secondary">
           <ion-button @click="toggleMenu">
-            <ion-icon slot="icon-only" name="menu"></ion-icon>
+            <!-- hack: use `menu-sharp` because `menu` as-is doesn't work -->
+            <ion-icon slot="icon-only" name="menu-sharp"></ion-icon>
           </ion-button>
         </ion-buttons>
         <ion-title>
