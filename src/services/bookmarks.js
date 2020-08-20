@@ -1,6 +1,6 @@
 function * generateBookmarks() {
   while (true) {
-    yield new Array(100).fill(0).map((_, index) => ({
+    yield new Array(20).fill(0).map((_, index) => ({
       id: index,
       content: 'Lorem ipsum',
       author: `Author ${index}`,

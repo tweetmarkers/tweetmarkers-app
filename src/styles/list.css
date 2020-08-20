@@ -1,3 +1,9 @@
+/* prevent blank gap on quick swipe */
+.item-sliding-active-swipe-start .item-options-start .item-option-expandable,
+.item-sliding-active-swipe-end .item-options-end .item-option-expandable {
+  transition-duration: 0s !important;
+}
+
 .list-enter-active,
 .list-leave-active,
 .list-move {
