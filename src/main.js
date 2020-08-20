@@ -4,6 +4,7 @@ import './icons'
 import { router } from './router'
 import App from './App.vue'
 import { defineCustomElements } from '@ionic/pwa-elements/loader'
+import './registerServiceWorker'
 
 (async () => {
   defineCustomElements(window)

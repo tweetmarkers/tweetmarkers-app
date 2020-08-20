@@ -1,6 +1,6 @@
 {
   "appId": "com.recuencojones.tweetmarkers",
-  "appName": "tweetmarkers-app",
+  "appName": "Tweetmarkers",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "dist",

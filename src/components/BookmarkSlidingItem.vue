@@ -11,7 +11,7 @@
         <ion-label slot="bottom">{{startOption.text}}</ion-label>
       </ion-item-option>
     </ion-item-options>
-    <ion-item :color="bookmark.read ? 'light' : undefined" :href="bookmark.url">
+    <ion-item class="ion-no-padding" :color="bookmark.read ? 'light' : undefined" :href="bookmark.url">
       <ion-card>
         <ion-card-header>
           <ion-card-title>

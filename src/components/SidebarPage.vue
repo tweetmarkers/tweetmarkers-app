@@ -2,7 +2,7 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-buttons slot="secondary">
+        <ion-buttons slot="start">
           <ion-button @click="toggleMenu">
             <!-- hack: use `menu-sharp` because `menu` as-is doesn't work -->
             <ion-icon slot="icon-only" name="menu-sharp"></ion-icon>
