@@ -1,6 +1,6 @@
 <template>
   <sidebar-page>
-    <ion-list v-if="bookmarks && actions" style="height: 100%">
+    <ion-list v-if="bookmarks && actions">
       <transition-group name="list">
         <bookmark-item v-for="(bookmark, index) in bookmarks"
             :key="bookmark.id"
