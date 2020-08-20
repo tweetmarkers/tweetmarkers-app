@@ -1,6 +1,17 @@
+const webpack = require('webpack')
+const gitRepoInfo = require('git-repo-info')
+const { version } = require('./package.json')
+
+const { sha } = gitRepoInfo()
+
 module.exports = {
+  chainWebpack: (config) =>
+    config.plugin('defineAppVariables').use(new webpack.DefinePlugin({
+      APP_VERSION: JSON.stringify(version),
+      GIT_SHA: JSON.stringify(sha.substring(0, 8))
+    })),
   pwa: {
-    name: 'Tweetmarks',
+    name: 'Tweetmarkers',
     themeColor: '#1fa0f2',
     msTileColor: '#1fa0f2',
     appleMobileWebAppCapable: 'yes',

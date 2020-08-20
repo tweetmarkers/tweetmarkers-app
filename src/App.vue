@@ -29,13 +29,20 @@
               </ion-avatar>
               <ion-label>{{user.username}}</ion-label>
             </ion-chip>
-            <ion-button @click="logOut()" color="danger" shape="round" fill="clear" slot="end">
+            <ion-button @click="logOut()" color="danger" fill="clear" slot="end">
               Log out
             </ion-button>
           </ion-item>
           <ion-item lines="none">
             <div class="ion-text-center" style="width: 100%; font-size: .75rem">
-              App version 1.0.0-fdai7jrea8f
+              App version {{version}}-{{sha}}
+            </div>
+          </ion-item>
+          <ion-item lines="none">
+            <div style="width: 100%; display: flex; justify-content: space-around">
+              <ion-button fill="clear" shape="round" color="dark" href="https://github.com/tweetmarkers" title="GitHub repository">
+                <ion-icon name="github" slot="icon-only"></ion-icon>
+              </ion-button>
             </div>
           </ion-item>
         </ion-content>
@@ -53,10 +60,14 @@
 import DeviceWrapper from './components/DeviceWrapper'
 import { getUser } from './services/user'
 
+console.log('foo')
+
 export default {
   data() {
     return {
-      user: null
+      user: null,
+      version: APP_VERSION,
+      sha: GIT_SHA
     }
   },
   methods: {

@@ -1,5 +1,6 @@
 {
   "name": "tweetmarkers-app",
+  "version": "1.0.0",
   "scripts": {
     "start": "npm run serve",
     "build": "ionic build",
@@ -26,6 +27,7 @@
     "@vue/cli-plugin-babel": "4.5.4",
     "@vue/cli-plugin-pwa": "4.5.4",
     "@vue/cli-service": "4.5.4",
+    "git-repo-info": "2.1.1",
     "live-server": "1.2.1",
     "vue-template-compiler": "2.6.11"
   }

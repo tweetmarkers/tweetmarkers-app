@@ -11,7 +11,8 @@ import {
   logOutSharp,
   heartSharp,
   heartDislikeSharp,
-  shareSocialSharp
+  shareSocialSharp,
+  logoGithub
 } from 'ionicons/icons'
 
 addIcons({
@@ -39,5 +40,7 @@ addIcons({
   'ios-unlike': heartDislikeSharp,
   'md-unlike': heartDislikeSharp,
   'ios-share': shareSocialSharp,
-  'md-share': shareSocialSharp
+  'md-share': shareSocialSharp,
+  'ios-github': logoGithub,
+  'md-github': logoGithub
 });
