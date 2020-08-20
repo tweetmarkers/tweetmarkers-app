@@ -1,10 +1,14 @@
+const content = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+
 function * generateBookmarks() {
   while (true) {
     yield new Array(20).fill(0).map((_, index) => ({
       id: index,
-      content: 'Lorem ipsum',
-      author: `Author ${index}`,
+      content: content.substring(0, content.length / (index % 5)),
+      author: 'RecuencoJones',
+      date: new Intl.DateTimeFormat().format(new Date()),
       read: index % 3 === 0,
+      like: index % 2 === 0,
       archived: index % 5 === 0,
       url: 'https://twitter.com/RecuencoJones/status/1295662438126358528'
     }))
@@ -65,5 +69,23 @@ export async function markAsUnread(bookmark) {
   bookmarksDB[index] = {
     ...bookmarksDB[index],
     read: false
+  }
+}
+
+export async function addLike(bookmark) {
+  const index = bookmarksDB.findIndex(({ id }) => bookmark.id === id)
+
+  bookmarksDB[index] = {
+    ...bookmarksDB[index],
+    like: true
+  }
+}
+
+export async function removeLike(bookmark) {
+  const index = bookmarksDB.findIndex(({ id }) => bookmark.id === id)
+
+  bookmarksDB[index] = {
+    ...bookmarksDB[index],
+    like: false
   }
 }

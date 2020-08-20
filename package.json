@@ -10,9 +10,12 @@
   },
   "dependencies": {
     "@capacitor/core": "2.4.0",
+    "@ionic-native/core": "5.28.0",
+    "@ionic-native/social-sharing": "5.28.0",
     "@ionic/core": "5.3.1",
     "@ionic/pwa-elements": "3.0.1",
     "@ionic/vue": "0.0.9",
+    "cordova-plugin-x-socialsharing": "6.0.1",
     "register-service-worker": "1.7.1",
     "vue": "2.6.11",
     "vue-router": "3.4.3"

@@ -8,7 +8,10 @@ import {
   mailSharp,
   mailOpenSharp,
   trashSharp,
-  logOutSharp
+  logOutSharp,
+  heartSharp,
+  heartDislikeSharp,
+  shareSocialSharp
 } from 'ionicons/icons'
 
 addIcons({
@@ -30,5 +33,11 @@ addIcons({
   'ios-remove': trashSharp,
   'md-remove': trashSharp,
   'ios-logout': logOutSharp,
-  'md-logout': logOutSharp
+  'md-logout': logOutSharp,
+  'ios-like': heartSharp,
+  'md-like': heartSharp,
+  'ios-unlike': heartDislikeSharp,
+  'md-unlike': heartDislikeSharp,
+  'ios-share': shareSocialSharp,
+  'md-share': shareSocialSharp
 });
