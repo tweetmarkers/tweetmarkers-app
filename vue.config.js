@@ -13,11 +13,11 @@ module.exports = {
   pwa: {
     name: 'Tweetmarkers',
     themeColor: '#1fa0f2',
-    backgroundColor: '#ffffff',
     msTileColor: '#1fa0f2',
     appleMobileWebAppCapable: 'yes',
     appleMobileWebAppStatusBarStyle: '#1fa0f2',
     manifestOptions: {
+      background_color: '#ffffff',
       icons: [
         {
           src: 'icons/android-padded-144x144.png',
