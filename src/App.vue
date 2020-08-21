@@ -60,8 +60,6 @@
 import DeviceWrapper from './components/DeviceWrapper'
 import { getUser } from './services/user'
 
-console.log('foo')
-
 export default {
   data() {
     return {
@@ -71,8 +69,9 @@ export default {
     }
   },
   methods: {
-    logOut() {
-
+    async logOut() {
+      this.$router.push('/')
+      await this.$ionic.menuController.close('nav')
     },
     goToUserProfile() {
       open('https://twitter.com/RecuencoJones', '_blank')
