@@ -13,13 +13,14 @@ module.exports = {
   pwa: {
     name: 'Tweetmarkers',
     themeColor: '#1fa0f2',
+    backgroundColor: '#ffffff',
     msTileColor: '#1fa0f2',
     appleMobileWebAppCapable: 'yes',
     appleMobileWebAppStatusBarStyle: '#1fa0f2',
     manifestOptions: {
       icons: [
         {
-          src: 'icons/android-144x144.png',
+          src: 'icons/android-padded-144x144.png',
           sizes: '144x144',
           type: 'image/png'
         },
@@ -38,7 +39,7 @@ module.exports = {
     iconPaths: {
       favicon16: 'icons/favicon-16x16.png',
       favicon32: 'icons/favicon-32x32.png',
-      appleTouchIcon: 'icons/apple-touch-icon-180x180.png',
+      appleTouchIcon: 'icons/apple-touch-icon-padded-180x180.png',
       maskIcon: 'icon.svg',
       msTileImage: 'icons/tile150x150.png'
     }

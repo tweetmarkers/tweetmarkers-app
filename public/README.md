@@ -1,3 +1,3 @@
-`public/icons` generated from `public/icon.svg` with https://cthedot.de/icongen
+`public/icons` generated from `public/icon.svg` and `public/icon-padded.svg` with https://cthedot.de/icongen
 
-`public/icon.svg` sketched with https://www.svgviewer.dev/
+`public/icon.svg` and `public/icon-padded.svg` sketched with https://www.svgviewer.dev/
