@@ -1,0 +1,13 @@
+<template>
+  <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 10 V190 L100 110 L190 190 L190 10 L10 10" stroke="none" fill="#1fa0f2">
+      <animate
+          attributeName="d"
+          from="M10 10 V190 L100 110 L190 190 L190 10 L10 10"
+          to="M10 10 V190 L190 170 L110 100 L190 30 L10 10"
+          begin="2s"
+          dur="2s"
+          fill="freeze" />
+    </path>
+  </svg>
+</template>

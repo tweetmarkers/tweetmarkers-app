@@ -8,10 +8,10 @@
     <ion-content :y-scroll="false">
       <div style="display: flex; flex-direction: column; height: 100%" class="ion-justify-content-around ion-align-items-center">
         <div class="ion-text-center">
-          <img src="/icon.svg" style="width: 75%" alt="Tweetmarkers logo" />
+          <animated-logo />
         </div>
         <div>
-          <ion-button style="background-color: #1fa0f2" expand="full" @click="logIn">
+          <ion-button style="--background: #1fa0f2" expand="full" @click="logIn">
             <ion-icon name="twitter" slot="start"></ion-icon>
             Login with Twitter
           </ion-button>
@@ -23,6 +23,7 @@
 
 <script>
 import DeviceWrapper from '../components/DeviceWrapper'
+import AnimatedLogo from '../components/AnimatedLogo'
 
 export default {
   methods: {
@@ -39,7 +40,8 @@ export default {
     }
   },
   components: {
-    DeviceWrapper
+    DeviceWrapper,
+    AnimatedLogo
   }
 }
 </script>
