@@ -40,7 +40,7 @@
           </ion-item>
           <ion-item lines="none">
             <div style="width: 100%; display: flex; justify-content: space-around">
-              <ion-button fill="clear" shape="round" color="dark" href="https://github.com/tweetmarkers" title="GitHub repository">
+              <ion-button fill="clear" shape="round" color="dark" href="https://github.com/tweetmarkers" target="_blank" title="GitHub repository">
                 <ion-icon name="github" slot="icon-only"></ion-icon>
               </ion-button>
             </div>
@@ -75,7 +75,7 @@ export default {
 
     },
     goToUserProfile() {
-      location.href = 'https://twitter.com/RecuencoJones'
+      open('https://twitter.com/RecuencoJones', '_blank')
     },
     getItemColor(path) {
       return this.$route.path === path ? 'light' : undefined
