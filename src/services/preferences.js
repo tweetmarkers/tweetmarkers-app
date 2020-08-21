@@ -1,10 +1,10 @@
-import { archiveAction, restoreAction, toggleReadAction, removeAction } from './actions'
+import { archiveAction, restoreAction, removeAction, toggleLikeAction } from './actions'
 import { delay } from './util'
 
 const DEFAULT_PREFERENCES = {
   bookmarkActions: {
     start: archiveAction.name,
-    end: toggleReadAction.name
+    end: toggleLikeAction.name
   },
   archiveActions: {
     start: restoreAction.name,

@@ -11,10 +11,18 @@
         <ion-label slot="bottom" style="padding: 0 1rem">{{startOption.text}}</ion-label>
       </ion-item-option>
     </ion-item-options>
-    <ion-item class="ion-no-padding" :color="bookmark.read ? 'light' : undefined" :href="bookmark.url" target="_blank">
-      <ion-card style="box-shadow: none; width: 100%">
-        <ion-card-content style="padding-top: 0; padding-right: 0; padding-bottom: 0">
-          <p style="display: flex; justify-content: space-between">
+    <ion-item
+        class="ion-no-padding tweet"
+        :color="bookmark.read ? 'light' : undefined"
+        :href="bookmark.url"
+        target="_blank"
+    >
+      <div class="tweet-like">
+        <ion-icon name="like" :style="{ opacity: bookmark.like ? 1 : 0 }"></ion-icon>
+      </div>
+      <ion-card class="tweet-main">
+        <ion-card-content class="tweet-content">
+          <p class="tweet-meta">
             <strong>
               @{{bookmark.author}}
             </strong>
@@ -53,3 +61,38 @@ export default {
   }
 }
 </script>
+
+<style>
+.tweet {
+}
+
+.tweet .tweet-main {
+  box-shadow: none;
+  width: 100%;
+}
+
+.tweet .tweet-content {
+  padding-top: 0;
+  padding-right: 0;
+}
+
+.tweet .tweet-meta {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tweet .tweet-like {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  right: 0;
+  padding: 0 26px .5rem;
+  color: #eb445a;
+  display: flex;
+  align-items: center;
+}
+
+.tweet .tweet-like * {
+  transition: opacity .75s ease;
+}
+</style>
