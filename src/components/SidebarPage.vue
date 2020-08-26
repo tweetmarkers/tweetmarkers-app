@@ -13,9 +13,7 @@
         </ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content>
-      <slot />
-    </ion-content>
+    <slot />
   </ion-page>
 </template>
 

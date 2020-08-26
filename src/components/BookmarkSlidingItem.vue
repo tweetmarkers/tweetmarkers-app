@@ -63,9 +63,6 @@ export default {
 </script>
 
 <style>
-.tweet {
-}
-
 .tweet .tweet-main {
   box-shadow: none;
   width: 100%;

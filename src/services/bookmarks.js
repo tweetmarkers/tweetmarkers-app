@@ -1,8 +1,10 @@
+import { delay } from './util'
+
 const content = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
 
 function * generateBookmarks() {
   while (true) {
-    yield new Array(20).fill(0).map((_, index) => ({
+    yield new Array(100).fill(0).map((_, index) => ({
       id: index,
       content: content.substring(0, content.length / (index % 5)),
       author: 'RecuencoJones',
@@ -19,11 +21,29 @@ const generator = generateBookmarks()
 const bookmarksDB = generator.next().value
 
 export async function fetchPage(start = 0, limit = 20) {
-  return bookmarksDB.filter(({ archived }) => !archived).slice(start, start + limit)
+  await delay(500);
+
+  const bookmarks = bookmarksDB.filter(({ archived }) => !archived)
+  const isLast = start + limit >= bookmarks.length
+
+  return {
+    results: bookmarks.slice(start, start + limit),
+    isLast,
+    nextStart: isLast ? null : start + limit
+  }
 }
 
 export async function fetchArchivePage(start = 0, limit = 20) {
-  return bookmarksDB.filter(({ archived }) => archived).slice(start, start + limit)
+  await delay(500);
+
+  const bookmarks = bookmarksDB.filter(({ archived }) => archived)
+  const isLast = start + limit >= bookmarks.length
+
+  return {
+    results: bookmarks.slice(start, start + limit),
+    isLast,
+    nextStart: isLast ? null : start + limit
+  }
 }
 
 export async function fetchOne({ id }) {

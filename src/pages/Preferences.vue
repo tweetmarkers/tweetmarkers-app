@@ -1,57 +1,59 @@
 <template>
   <sidebar-page>
-    <template v-if="preferences">
-      <ion-item class="ion-margin-top">
-        <ion-label>
-          <strong>Bookmarks Action Gestures</strong>
-        </ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>
-          Start
-        </ion-label>
-        <ion-select :value="preferences.bookmarkActions.start" @ionChange="handleChangeStartAction">
-          <ion-select-option v-for="option in startBookmarkActionOptions" :key="option.name" :value="option.name">
-            {{option.name}}
-          </ion-select-option>
-          <ion-select-option :value="null">None</ion-select-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-label>End</ion-label>
-        <ion-select :value="preferences.bookmarkActions.end" @ionChange="handleChangeEndAction">
-          <ion-select-option v-for="option in endBookmarkActionOptions" :key="option.name" :value="option.name">
-            {{option.name}}
-          </ion-select-option>
-          <ion-select-option :value="null">None</ion-select-option>
-        </ion-select>
-      </ion-item>
+    <ion-content>
+      <template v-if="preferences">
+        <ion-item class="ion-margin-top">
+          <ion-label>
+            <strong>Bookmarks Action Gestures</strong>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            Start
+          </ion-label>
+          <ion-select :value="preferences.bookmarkActions.start" @ionChange="handleChangeStartAction">
+            <ion-select-option v-for="option in startBookmarkActionOptions" :key="option.name" :value="option.name">
+              {{option.name}}
+            </ion-select-option>
+            <ion-select-option :value="null">None</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>End</ion-label>
+          <ion-select :value="preferences.bookmarkActions.end" @ionChange="handleChangeEndAction">
+            <ion-select-option v-for="option in endBookmarkActionOptions" :key="option.name" :value="option.name">
+              {{option.name}}
+            </ion-select-option>
+            <ion-select-option :value="null">None</ion-select-option>
+          </ion-select>
+        </ion-item>
 
-      <ion-item class="ion-margin-top">
-        <ion-label>
-          <strong>Archive Action Gestures</strong>
-        </ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>Start</ion-label>
-        <ion-select :value="preferences.archiveActions.start" @ionChange="handleChangeStartArchiveAction">
-          <ion-select-option v-for="option in startArchiveActionOptions" :key="option.name" :value="option.name">
-            {{option.name}}
-          </ion-select-option>
-          <ion-select-option :value="null">None</ion-select-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-label>End</ion-label>
-        <ion-select :value="preferences.archiveActions.end" @ionChange="handleChangeEndArchiveAction">
-          <ion-select-option v-for="option in endArchiveActionOptions" :key="option.name" :value="option.name">
-            {{option.name}}
-          </ion-select-option>
-          <ion-select-option :value="null">None</ion-select-option>
-        </ion-select>
-      </ion-item>
-    </template>
-    <ion-loading v-else />
+        <ion-item class="ion-margin-top">
+          <ion-label>
+            <strong>Archive Action Gestures</strong>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Start</ion-label>
+          <ion-select :value="preferences.archiveActions.start" @ionChange="handleChangeStartArchiveAction">
+            <ion-select-option v-for="option in startArchiveActionOptions" :key="option.name" :value="option.name">
+              {{option.name}}
+            </ion-select-option>
+            <ion-select-option :value="null">None</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>End</ion-label>
+          <ion-select :value="preferences.archiveActions.end" @ionChange="handleChangeEndArchiveAction">
+            <ion-select-option v-for="option in endArchiveActionOptions" :key="option.name" :value="option.name">
+              {{option.name}}
+            </ion-select-option>
+            <ion-select-option :value="null">None</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </template>
+      <ion-loading v-else />
+    </ion-content>
   </sidebar-page>
 </template>
 
