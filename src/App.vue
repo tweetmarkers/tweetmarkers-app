@@ -1,6 +1,6 @@
 <template>
   <device-wrapper>
-    <ion-app>
+    <ion-app style="background: #ffffff">
       <ion-menu side="start" menu-id="nav" content-id="main">
         <ion-header>
           <ion-toolbar>

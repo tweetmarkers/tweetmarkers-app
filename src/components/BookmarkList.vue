@@ -1,6 +1,6 @@
 <template>
   <sidebar-page>
-    <ion-content color="medium">
+    <ion-content>
       <template v-if="bookmarks && actions">
         <ion-refresher slot="fixed" @ionRefresh="handleRefresh">
           <ion-refresher-content />
@@ -14,7 +14,7 @@
                 :end-option="actions.end(bookmark)"
                 @click-start-option="handleAction('start', bookmark, index)"
                 @click-end-option="handleAction('end', bookmark, index)" />
-            <ion-item v-if="!hasMore" key="last" class="ion-no-padding ion-text-center" style="--inner-padding-end: 0" lines="none" color="medium">
+            <ion-item v-if="!hasMore" key="last" class="ion-no-padding ion-text-center" style="--inner-padding-end: 0" lines="none">
               <ion-label style="font-size: 2rem; margin-right: 0">
                 .
               </ion-label>
