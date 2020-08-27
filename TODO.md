@@ -1,2 +1,0 @@
-- Bigger user profile name + avatar in menu (like a banner at top)
-- Log out button on bottom of menu

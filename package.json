@@ -4,7 +4,7 @@
   "scripts": {
     "start": "npm run serve",
     "build": "ionic build",
-    "serve": "ionic serve",
+    "serve": "ionic serve --host=0.0.0.0",
     "ionic:build": "vue-cli-service build",
     "ionic:serve": "vue-cli-service serve",
     "pwa:serve": "live-server --entry-file=./index.html ./dist/"

@@ -8,8 +8,29 @@
           </ion-toolbar>
         </ion-header>
         <ion-content scroll-y="false">
+          <ion-item
+              v-if="user"
+              style="
+                --ion-item-background: #1fa0f2;
+                --ion-item-color: #ffffff;
+                --min-height: 6rem;
+                background: var(--ion-item-background);
+              "
+              lines="none"
+              detail="false"
+              href="https://twitter.com/RecuencoJones"
+              target="_blank"
+          >
+            <ion-avatar slot="start">
+              <img :src="user.avatar" alt="User image">
+            </ion-avatar>
+            <ion-label>
+              <strong>{{user.username}}</strong>
+            </ion-label>
+          </ion-item>
+          <ion-item-divider color="#ffffff"></ion-item-divider>
           <ion-list>
-            <ion-item @click="push('/bookmarks')" :color="getItemColor('/bookmarks')" detail>
+            <ion-item @click="push('/bookmarks')" :color="getItemColor('/bookmarks')" detail style="--inner-border-width: 0.55px 0px 0.55px 0px;">
               <ion-icon name="bookmark" slot="start" size="small"></ion-icon>
               Home
             </ion-item>
@@ -22,17 +43,12 @@
               Preferences
             </ion-item>
           </ion-list>
-          <ion-item lines="none" v-if="user">
-            <ion-chip @click="goToUserProfile">
-              <ion-avatar>
-                <img :src="user.avatar" alt="User image">
-              </ion-avatar>
-              <ion-label>{{user.username}}</ion-label>
-            </ion-chip>
-            <ion-button @click="logOut()" color="danger" fill="clear" slot="end">
+          <ion-list>
+            <ion-item @click="logOut()" color="danger" detail>
+              <ion-icon name="logout" slot="start" size="small"></ion-icon>
               Log out
-            </ion-button>
-          </ion-item>
+            </ion-item>
+          </ion-list>
           <ion-item lines="none">
             <div class="ion-text-center" style="width: 100%; font-size: .75rem">
               App version {{version}}-{{sha}}
@@ -72,9 +88,6 @@ export default {
     async logOut() {
       this.$router.push('/')
       await this.$ionic.menuController.close('nav')
-    },
-    goToUserProfile() {
-      open('https://twitter.com/RecuencoJones', '_blank')
     },
     getItemColor(path) {
       return this.$route.path === path ? 'light' : undefined
