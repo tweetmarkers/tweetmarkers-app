@@ -22,7 +22,8 @@
       width: 500px;
       margin: 50px auto;
       border: 5px solid #000000;
-      border-radius: 5px;
+      border-radius: 25px;
+      overflow: hidden;
       box-shadow: 2px 2px 10px 2px #000000;
     }
   }
