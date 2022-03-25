@@ -33,7 +33,6 @@
 <script>
 import SidebarPage from '../components/SidebarPage'
 import BookmarkItem from '../components/BookmarkSlidingItem'
-import { noop, delay } from '../services/util'
 
 export default {
   props: [ 'bookmarks', 'actions', 'hasMore' ],

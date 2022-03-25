@@ -34,7 +34,7 @@ export default {
 
       await spinner.present()
 
-      this.$router.push('/bookmarks')
+      location.href = `/api/auth?from=${ location.href }`;
 
       await spinner.dismiss()
     }

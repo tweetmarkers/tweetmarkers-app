@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { delay } from './util'
 
 const content = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
@@ -31,6 +32,22 @@ export async function fetchPage(start = 0, limit = 20) {
     isLast,
     nextStart: isLast ? null : start + limit
   }
+}
+
+export async function fetchBookmarksPage(next) {
+  const query = new URLSearchParams();
+
+  if (next) {
+    query.set('next', next);
+  }
+
+  const { data } = await axios.get(`/api/bookmarks?${ query.toString() }`);
+
+  return data;
+}
+
+export async function removeBookmark(id) {
+  await axios.delete(`/api/bookmarks/${ id }`);
 }
 
 export async function fetchArchivePage(start = 0, limit = 20) {
@@ -92,20 +109,10 @@ export async function markAsUnread(bookmark) {
   }
 }
 
-export async function addLike(bookmark) {
-  const index = bookmarksDB.findIndex(({ id }) => bookmark.id === id)
-
-  bookmarksDB[index] = {
-    ...bookmarksDB[index],
-    like: true
-  }
+export async function addLike(id) {
+  await axios.put(`/api/bookmarks/${ id }/like`);
 }
 
-export async function removeLike(bookmark) {
-  const index = bookmarksDB.findIndex(({ id }) => bookmark.id === id)
-
-  bookmarksDB[index] = {
-    ...bookmarksDB[index],
-    like: false
-  }
+export async function removeLike(id) {
+  await axios.delete(`/api/bookmarks/${ id }/like`);
 }

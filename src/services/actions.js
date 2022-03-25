@@ -4,10 +4,9 @@ import { SocialSharing } from '@ionic-native/social-sharing'
 import { showToast } from './toast'
 import {
   fetchOne,
-  unbookmark,
   archive, restore,
   markAsRead, markAsUnread,
-  addLike, removeLike
+  addLike, removeLike, removeBookmark
 } from './bookmarks'
 
 export const archiveItem = (bookmark, index, vm) => ({
@@ -43,7 +42,7 @@ export const removeItem = (bookmark, index, vm) => ({
   text: 'Remove',
   icon: 'remove',
   async action() {
-    await unbookmark(bookmark)
+    await removeBookmark(bookmark.id);
     vm.bookmarks.splice(index, 1)
 
     await showToast({
@@ -71,8 +70,8 @@ export const toggleLikeItem = (bookmark, index, vm) => ({
   async action() {
     const toggleLike = bookmark.like ? removeLike : addLike
 
-    await toggleLike(bookmark)
-    Vue.set(vm.bookmarks, index, await fetchOne(bookmark))
+    await toggleLike(bookmark.id)
+    // Vue.set(vm.bookmarks, index, await fetchOne(bookmark))
   }
 })
 

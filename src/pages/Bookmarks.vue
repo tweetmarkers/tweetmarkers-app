@@ -9,10 +9,10 @@
 
 <script>
 import BookmarkList from '../components/BookmarkList'
-import { fetchPage } from '../services/bookmarks'
+import { fetchBookmarksPage } from '../services/bookmarks'
 import { getBookmarkActionPreferences } from '../services/preferences'
 import { bookmarkActionTypes } from '../services/actions'
-import { noop, delay } from '../services/util'
+import { noop } from '../services/util'
 
 export default {
   data() {
@@ -24,20 +24,20 @@ export default {
   },
   methods: {
     async handleRefresh(event) {
-      await delay(500)
+      const { next, results } = await fetchBookmarksPage()
 
-      const page = await fetchPage()
-
-      this.bookmarks = page.results
-      this.hasMore = !page.isLast
+      this.bookmarks = results
+      this.next = next
+      this.hasMore = !!next
 
       event.target.complete()
     },
     async handleScroll(event) {
-      const page = await fetchPage(this.bookmarks.length)
+      const { next, results } = await fetchBookmarksPage(this.next)
 
-      this.bookmarks.push(...page.results)
-      this.hasMore = !page.isLast
+      this.bookmarks.push(...results)
+      this.next = next
+      this.hasMore = !!next
 
       event.target.complete()
     }
@@ -49,10 +49,11 @@ export default {
 
     await spinner.present()
 
-    const [ page, { start, end } ] = await Promise.all([ fetchPage(), getBookmarkActionPreferences() ])
+    const [ { next, results }, { start, end } ] = await Promise.all([ fetchBookmarksPage(), getBookmarkActionPreferences() ])
 
-    this.bookmarks = page.results
-    this.hasMore = !page.isLast
+    this.bookmarks = results
+    this.next = next
+    this.hasMore = !!next
 
     this.actions = {
       start: bookmarkActionTypes.find(({ name }) => name === start)?.value || noop,

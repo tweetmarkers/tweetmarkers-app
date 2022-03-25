@@ -23,9 +23,15 @@
       <ion-card class="tweet-main">
         <ion-card-content class="tweet-content">
           <p class="tweet-meta">
-            <strong>
-              @{{bookmark.author}}
-            </strong>
+            <span>
+              <strong>
+                {{bookmark.author}}
+              </strong>
+              <span>
+                @{{bookmark.author_handle}}
+              </span>
+            </span>
+            <span class="tweet-date-separator">·</span>
             <span>
               {{bookmark.date}}
             </span>
@@ -73,9 +79,12 @@ export default {
   padding-right: 0;
 }
 
+.tweet .tweet-date-separator {
+  padding: 0 .25rem;
+}
+
 .tweet .tweet-meta {
   display: flex;
-  justify-content: space-between;
 }
 
 .tweet .tweet-like {

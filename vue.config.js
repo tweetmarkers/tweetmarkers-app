@@ -5,6 +5,14 @@ const { version } = require('./package.json')
 const { sha } = gitRepoInfo()
 
 module.exports = {
+  devServer: {
+    proxy: {
+      '^/api': {
+        target: 'http://localhost:3000',
+        changeOrigin: true
+      }
+    }
+  },
   chainWebpack: (config) =>
     config.plugin('defineAppVariables').use(new webpack.DefinePlugin({
       APP_VERSION: JSON.stringify(version),
