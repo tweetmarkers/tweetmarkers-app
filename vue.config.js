@@ -8,7 +8,7 @@ module.exports = {
   devServer: {
     proxy: {
       '^/api': {
-        target: 'http://localhost:3000',
+        target: process.env.USE_NETLIFY_BACKEND ? 'http://localhost:8888' : 'http://localhost:3000',
         changeOrigin: true
       }
     }
